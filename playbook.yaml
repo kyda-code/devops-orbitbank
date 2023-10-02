@@ -1,0 +1,13 @@
+---
+- hosts: all
+  tasks:
+  - name: Pull Docker image
+    docker_pull:
+      name: banking_app
+
+  - name: Start Docker container
+    docker_container:
+      name: banking_app
+      image: banking_app
+      ports:
+        - "8080:8080"
